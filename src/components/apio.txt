@@ -1,0 +1,416 @@
+{
+	"info": {
+		"_postman_id": "5f23c630-7730-4b22-9184-ea628093fab8",
+		"name": "practical-task-api-doc",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "user-list",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYyMTY2NTE1OCwiZXhwIjoxNjIxNjY4NzU4LCJuYmYiOjE2MjE2NjUxNTgsImp0aSI6IkxGbjRsT0l3NXR6bTN1WVYiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.9hoDSymYWk35lc0DiJ11NfQ7kOkh12s61odRPpnnF1Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://dignizant.com/practical-task-api-doc/public/api/user-detail",
+					"protocol": "http",
+					"host": [
+						"dignizant",
+						"com"
+					],
+					"path": [
+						"practical-task-api-doc",
+						"public",
+						"api",
+						"user-detail"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "ankita.gajera@dignizant.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "ankita123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://dignizant.com/practical-task-api-doc/public/api/login",
+					"protocol": "http",
+					"host": [
+						"dignizant",
+						"com"
+					],
+					"path": [
+						"practical-task-api-doc",
+						"public",
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "ankita",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "ankita.gajera@dignizant.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "ankita123",
+							"type": "text"
+						},
+						{
+							"key": "password_confirmation",
+							"value": "ankita123",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "test",
+							"type": "text"
+						},
+						{
+							"key": "profile_photo",
+							"type": "file",
+							"src": "/C:/Users/Admin/Desktop/AnyQuote_DEV/public/images/admin-loader.gif"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://dignizant.com/practical-task-api-doc/public/api/register",
+					"protocol": "http",
+					"host": [
+						"dignizant",
+						"com"
+					],
+					"path": [
+						"practical-task-api-doc",
+						"public",
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "edit-user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYyMjAwNDMzOCwiZXhwIjoxNjIyMDA3OTM4LCJuYmYiOjE2MjIwMDQzMzgsImp0aSI6ImVkdDA4cmdOZjdKM0JZcUsiLCJzdWIiOjExLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.RLDU9zaUFfk7T4G5rnRzqqHuwcaLCQWW9GZ8lmuDnyg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user_id",
+							"value": "10",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "th",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "hgh",
+							"type": "text"
+						},
+						{
+							"key": "profile_photo",
+							"type": "file",
+							"src": "/F:/wamp64/www/caregiver/images/homepage/37.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://dignizant.com/practical-task-api-doc/public/api/edit-user",
+					"protocol": "http",
+					"host": [
+						"dignizant",
+						"com"
+					],
+					"path": [
+						"practical-task-api-doc",
+						"public",
+						"api",
+						"edit-user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user_list",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYyMjAwNDMzOCwiZXhwIjoxNjIyMDA3OTM4LCJuYmYiOjE2MjIwMDQzMzgsImp0aSI6ImVkdDA4cmdOZjdKM0JZcUsiLCJzdWIiOjExLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.RLDU9zaUFfk7T4G5rnRzqqHuwcaLCQWW9GZ8lmuDnyg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://dignizant.com/practical-task-api-doc/public/api/user-list",
+					"protocol": "http",
+					"host": [
+						"dignizant",
+						"com"
+					],
+					"path": [
+						"practical-task-api-doc",
+						"public",
+						"api",
+						"user-list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete-user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYyMTY2ODA4MSwiZXhwIjoxNjIxNjcxNjgxLCJuYmYiOjE2MjE2NjgwODEsImp0aSI6IlJxNXN5dGNDYVBNOWpQSjEiLCJzdWIiOjYsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.hnBrMFnjwwL1fTkcU12CdQBT30rbHdfGVoA9_Srw7qs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "ankita1",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "test",
+							"type": "text"
+						},
+						{
+							"key": "user_id",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://dignizant.com/practical-task-api-doc/public/api/delete-user",
+					"protocol": "http",
+					"host": [
+						"dignizant",
+						"com"
+					],
+					"path": [
+						"practical-task-api-doc",
+						"public",
+						"api",
+						"delete-user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user-detail",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYyMjAwNDMzOCwiZXhwIjoxNjIyMDA3OTM4LCJuYmYiOjE2MjIwMDQzMzgsImp0aSI6ImVkdDA4cmdOZjdKM0JZcUsiLCJzdWIiOjExLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.RLDU9zaUFfk7T4G5rnRzqqHuwcaLCQWW9GZ8lmuDnyg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user_id",
+							"value": "10",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://dignizant.com/practical-task-api-doc/public/api/user-detail",
+					"protocol": "http",
+					"host": [
+						"dignizant",
+						"com"
+					],
+					"path": [
+						"practical-task-api-doc",
+						"public",
+						"api",
+						"user-detail"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create-user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYyMTY2NjI5MSwiZXhwIjoxNjIxNjY5ODkxLCJuYmYiOjE2MjE2NjYyOTEsImp0aSI6InZoNlZuOTVmVXBiaERVMGkiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.Ij8AOwiYgsjizuX1HDtXaMPxXe7NpuE9S-ACxByIjZ8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "ankita",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "ankita.gajera4@dignizant.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "ankita123",
+							"type": "text"
+						},
+						{
+							"key": "password_confirmation",
+							"value": "ankita123",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "test",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://dignizant.com/practical-task-api-doc/public/api/create-user",
+					"protocol": "http",
+					"host": [
+						"dignizant",
+						"com"
+					],
+					"path": [
+						"practical-task-api-doc",
+						"public",
+						"api",
+						"create-user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYyMTY2NTE1OCwiZXhwIjoxNjIxNjY4NzU4LCJuYmYiOjE2MjE2NjUxNTgsImp0aSI6IkxGbjRsT0l3NXR6bTN1WVYiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.9hoDSymYWk35lc0DiJ11NfQ7kOkh12s61odRPpnnF1Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://dignizant.com/practical-task-api-doc/public/api/logout",
+					"protocol": "http",
+					"host": [
+						"dignizant",
+						"com"
+					],
+					"path": [
+						"practical-task-api-doc",
+						"public",
+						"api",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
