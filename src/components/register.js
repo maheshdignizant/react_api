@@ -37,6 +37,7 @@ const Register = () => {
                                                 <input type="radio" name="gender" value="male" checked />
                                                 <span > Male </span>
                                             </label>
+                                            <br/>
                                             <label className="radio inline">
                                                 <input type="radio" name="gender" value="female" />
                                                 <span>Female </span>
