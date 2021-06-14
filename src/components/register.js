@@ -20,10 +20,16 @@ const Register = () => {
                             <div className="row register-form justify-content-center ">
                                 <div className="col-sm-9 col-md-6">
                                     <div className="form-group mb-3 " >
-                                        <input type="text" className="form-control" placeholder="First Name *" value="" />
+                                        <input type="text" className="form-control" placeholder=" Name *" value="" />
                                     </div>
                                     <div className="form-group  mb-3 ">
-                                        <input type="text" className="form-control" placeholder="Last Name *" value="" />
+                                        <input type="email" className="form-control" placeholder="Your Email *" value="" />
+                                    </div>
+                                    <div className="form-group  mb-3 ">
+                                        <input type="text" className="form-control" placeholder="Description *" value="" />
+                                    </div>
+                                    <div className="form-group  mb-3 ">
+                                        <input type="password" className="form-control" placeholder="Profile Photo *" value="" />
                                     </div>
                                     <div className="form-group  mb-3 ">
                                         <input type="password" className="form-control" placeholder="Password *" value="" />
@@ -31,41 +37,12 @@ const Register = () => {
                                     <div className="form-group  mb-3 ">
                                         <input type="password" className="form-control" placeholder="Confirm Password *" value="" />
                                     </div>
-                                    <div className="form-group  mb-3 ">
-                                        <div className="maxl">
-                                            <label className="radio inline">
-                                                <input type="radio" name="gender" value="male" checked />
-                                                <span > Male </span>
-                                            </label>
-                                            <br/>
-                                            <label className="radio inline">
-                                                <input type="radio" name="gender" value="female" />
-                                                <span>Female </span>
-                                            </label>
-                                        </div>
-                                    </div>
+
                                 </div>
                                 <div className="col-md-6 ">
-                                    <div className="form-group  mb-3 ">
-                                        <input type="email" className="form-control" placeholder="Your Email *" value="" />
-                                    </div>
-                                    <div className="form-group  mb-3 ">
-                                        <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" className="form-control" placeholder="Your Phone *" value="" />
-                                    </div>
-                                    <div className="form-group  mb-3 ">
-                                        <select className="form-control">
-                                            <option className="hidden" selected disabled>Please select your Sequrity Question</option>
-                                            <option>What is your Birthdate?</option>
-                                            <option>What is Your old Phone Number</option>
-                                            <option>What is your Pet Name?</option>
-                                        </select>
-                                    </div>
-                                    <div className="form-group  mb-3 ">
-                                        <input type="text" className="form-control" placeholder="Enter Your Answer *" value="" />
-                                    </div>
                                     <div>
                                         <input type="submit" className="btnRegister" value="Register" />
-                                    </div>                              
+                                    </div>
                                 </div>
                             </div>
                         </div>

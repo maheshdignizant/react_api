@@ -26,12 +26,16 @@ const Login = () => {
                 email: email,
                 password: password
             })
+            .then(res => {
+                console.log("datasss", res.data);
+                dispatch(GetToken(res.data.access_token))
+            })
             .catch((err) => {
                 console.log("Err: ", err);
             });
         // localStorage.setItem('myData', response['data'].access_token);
         // console.log(response);
-        dispatch(GetToken(response['data'].access_token));
+        // dispatch(GetToken(response));
         // dispatch(AllData(response.data.data.summary));
     };
     useEffect(() => {
@@ -41,6 +45,7 @@ const Login = () => {
     const token = useSelector((state) => state.Token.token);
     console.log("api", token);
     localStorage.setItem('api_token', JSON.stringify(token));
+
     return (
     
         <div className="container register media">
