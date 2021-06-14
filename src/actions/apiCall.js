@@ -4,3 +4,10 @@ export const GetToken = (data) => {
         payload: data
     }
 }
+
+export const UserData = (data) => {
+    return {
+        type : "USERDATA",
+        payload: data
+    }
+}

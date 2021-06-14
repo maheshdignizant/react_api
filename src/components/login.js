@@ -40,7 +40,7 @@ const Login = () => {
 
     const token = useSelector((state) => state.Token.token);
     console.log("api", token);
-    localStorage.setItem('api_token', token);
+    localStorage.setItem('api_token', JSON.stringify(token));
     return (
     
         <div className="container register media">
