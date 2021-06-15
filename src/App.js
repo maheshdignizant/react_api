@@ -5,6 +5,7 @@ import Login from './components/login';
 import Register from './components/register';
 import UserList from './components/userList';
 import CreateUser from './components/addUser';
+import EditUser from './components/editUser';
 import Logout from './components/logout';
 import Api from './components/api'
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
@@ -22,6 +23,7 @@ export const App = () => {
           <Route  path='/api' component={Api} />
           <Route  path='/userdata' component={UserList} />
           <Route  path='/adduser' component={CreateUser} />
+          <Route  path='/edituser/:id' component={EditUser} />
           <Route  path='/logout' component={Logout} />
         </Switch>
       </Router>
