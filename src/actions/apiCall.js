@@ -11,3 +11,17 @@ export const UserData = (data) => {
         payload: data
     }
 }
+
+export const DelUser = (data) => {
+    return {
+        type : "DELDATA",
+        payload: data
+    }
+}
+
+export const EditUser = (data) => {
+    return {
+        type : "EDITUSER",
+        payload: data
+    }
+}

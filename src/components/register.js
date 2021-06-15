@@ -2,6 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 
 const Register = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        alert('user created successfully')
+    }
     return (
         <div className="container register">
             <div className="row">
@@ -19,6 +23,7 @@ const Register = () => {
                             <h3 className="register-heading">Registration Form</h3>
                             <div className="row register-form justify-content-center ">
                                 <div className="col-sm-9 col-md-6">
+                                <form onSubmit={handleSubmit}>
                                     <div className="form-group mb-3 " >
                                         <input type="text" className="form-control" placeholder=" Name *" value="" />
                                     </div>
@@ -37,12 +42,10 @@ const Register = () => {
                                     <div className="form-group  mb-3 ">
                                         <input type="password" className="form-control" placeholder="Confirm Password *" value="" />
                                     </div>
-
-                                </div>
-                                <div className="col-md-6 ">
                                     <div>
-                                        <input type="submit" className="btnRegister" value="Register" />
+                                    <button type="submit" className="btnRegister" >Login</button>
                                     </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>

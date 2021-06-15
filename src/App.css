@@ -137,3 +137,9 @@
   margin-bottom: -15%;
   color: #495057;
 }
+
+.logout{
+  justify-content: center;
+  display: flex;
+  margin-top : 20%;
+}

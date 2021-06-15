@@ -15,9 +15,9 @@ const Login = () => {
         return email.length > 0 && password.length > 0;
     }
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        console.log("Fwfef");
+    const handleSubmit = (e) => {
+        fetchToken();
+        e.preventDefault();
     }
 
     const fetchToken = async () => {
@@ -29,6 +29,7 @@ const Login = () => {
             .then(res => {
                 console.log("datasss", res.data);
                 dispatch(GetToken(res.data.access_token))
+                window.location.href="/userdata";
             })
             .catch((err) => {
                 console.log("Err: ", err);
@@ -38,9 +39,9 @@ const Login = () => {
         // dispatch(GetToken(response));
         // dispatch(AllData(response.data.data.summary));
     };
-    useEffect(() => {
-        fetchToken();
-    }, [email, password]);
+    // useEffect(() => {
+    //     fetchToken();
+    // }, [password]);
 
     const token = useSelector((state) => state.Token.token);
     console.log("api", token);
@@ -80,7 +81,7 @@ const Login = () => {
                                         onChange={(e) => setPassword(e.target.value)} />
                                     </div>
                                     <div className="form-group">
-                                            <button type="submit" className="btnRegister" disabled={!validateForm()}><Link to="/userdata" className="nav-link active"/>Login</button>
+                                        <button type="submit" className="btnRegister" disabled={!validateForm()}>Login</button>
                                     </div>
                                 </form>
                                 </div>
