@@ -20,6 +20,7 @@ export const DelUser = (data) => {
 }
 
 export const EditUser = (data) => {
+    console.log("xxx",data);
     return {
         type : "EDITUSER",
         payload: data

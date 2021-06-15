@@ -1,11 +1,10 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
-import { useSelector } from "react-redux";
+import { Link, useHistory } from 'react-router-dom';
 import axios from 'axios'
 
 const Header = () => {
 
-
+    const history = useHistory();
     const token = JSON.parse(localStorage.getItem('api_token'));
     console.log(token);
     const userData = async () => {
@@ -17,6 +16,7 @@ const Header = () => {
             })
             .then(res => {
                 console.log("datasss", res);
+                history.push('/')
                 localStorage.removeItem("api_token");
             })
             .catch((err) => {
