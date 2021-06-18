@@ -1,30 +1,32 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link, useHistory } from 'react-router-dom';
 import axios from 'axios'
 
 const Header = () => {
 
     const history = useHistory();
-    const token = JSON.parse(localStorage.getItem('api_token'));
-    console.log(token);
+    
+    
     const userData = async () => {
-        const response = await axios
-            .post("http://dignizant.com/practical-task-api-doc/public/api/logout",'', 
-            {
-                headers: { 'Authorization': `Bearer ${token}` },
-
-            })
-            .then(res => {
-                console.log("datasss", res);
-                history.push('/')
-                localStorage.removeItem("api_token");
-            })
-            .catch((err) => {
-                console.log("Err: ", err);
-
-            });
+        
+        console.log("ssss", token);
+        await axios
+        .post("http://dignizant.com/practical-task-api-doc/public/api/logout", '',
+        {
+            headers: { 'Authorization': `Bearer ${localStorage.getItem('api_token')}` },
+        })
+        .then(res => {
+            console.log("datasss", res);
+            localStorage.removeItem('api_token');
+            history.push('/')
+        })
+        .catch((err) => {
+            console.log("Err: ", err);
+            
+        });
     }
-console.log('token', token)
+    const token = localStorage.getItem('api_token');
+
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-dark bg-primary" >
@@ -34,17 +36,19 @@ console.log('token', token)
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul className="navbar-nav me-auto mb-2 ml-0 mb-lg-0">
-                            {localStorage.getItem('api_token') == '' ?
-                                <>
+                        { token == null ?
+                            <>
+                                <ul className="navbar-nav me-auto mb-2 ml-0 mb-lg-0">
                                     <li className="nav-item mr-0">
                                         <li className="mr-lg-3 mr-2 active"><Link to="/" className="nav-link active">Login</Link></li>
                                     </li>
                                     <li className="nav-item mr-0">
                                         <li className="mr-lg-3 mr-2 active"><Link to="/register" className="nav-link active">Register</Link></li>
                                     </li>
-                                </> :
-                                <>
+                                </ul>
+                            </> :
+                            <>
+                                <ul className="navbar-nav me-auto mb-2 ml-0 mb-lg-0">
                                 <li className="nav-item mr-0">
                                     <li className="mr-lg-3 mr-2 active"><Link to="/addUser" className="nav-link active">Add User</Link></li>
                                 </li>
@@ -54,9 +58,9 @@ console.log('token', token)
                                 <li className="nav-item mr-0">
                                     <li className="mr-lg-3 mr-2 active"><a onClick={() => userData()} className="nav-link active">Logout</a></li>
                                 </li>
+                            </ul>
                                 </>
                             }
-                        </ul>
                     </div>
                 </div>
             </nav>

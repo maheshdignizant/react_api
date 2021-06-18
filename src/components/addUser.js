@@ -1,12 +1,23 @@
 import React from 'react'
 import { Link,  useHistory } from 'react-router-dom';
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import axios from 'axios'
+import { useDispatch, useSelector } from "react-redux";
+import { UserData } from "../actions/apiCall"
+
 
 
 const AddUser = () => {
 
     const history = useHistory();
+    const dispatch = useDispatch();
+
+    const token = localStorage.getItem('api_token');
+
+    if(token == null){
+        alert('You are not Admin')
+        history.push('/')
+    }
     const [user, setUser] = useState({
         name: "",
         email: "",
@@ -22,18 +33,19 @@ const AddUser = () => {
         password_confirmation: user.confirm_password,
         description: user.description
     }
-    const token = JSON.parse(localStorage.getItem('api_token'));
     // console.log(token)
     const userData = async () => {
-        const response = await axios
+            await axios
             .post("http://dignizant.com/practical-task-api-doc/public/api/create-user", data,
                 {
                     headers: { 'Authorization': `Bearer ${token}` },
 
                 })
             .then(res => {
-                console.log("datasss", res
+                console.log("datasssssss", res
                 );
+                userDataList();
+
             })
             .catch((err) => {
                 console.log("Erraaaa: ", err);
@@ -41,7 +53,21 @@ const AddUser = () => {
             });
     }
 
-  
+        const userDataList = async () => {
+        await axios
+            .post("http://dignizant.com/practical-task-api-doc/public/api/user-list", '',
+                {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                })
+            .then(res => {
+                dispatch(UserData(res.data.data))
+            })
+            .catch((err) => {
+                console.log("Err: ", err);
+
+            });
+    }
+
 
     const handleSubmit = (e) => {
         alert('user created successfully')

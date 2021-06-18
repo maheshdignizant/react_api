@@ -1,20 +1,32 @@
 import React from 'react'
 import axios from 'axios';
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { UserData } from "../actions/apiCall"
 import { DelUser } from '../actions/apiCall'
 
 const UserList = () => {
+    let getData = useSelector((state) => state.UserData.data);
 
-    // console.log("api", token);
-    const [data, setData] = useState()
+    const token = localStorage.getItem('api_token');
+
+    const history = useHistory();
+
+    if (token == null) {
+        alert('First you have to Log in')
+        history.push('/')
+    }
+
+    useEffect(() => {
+        userData();
+        console.log("list")
+    }, [])
+
+
     const dispatch = useDispatch();
-    const token = JSON.parse(localStorage.getItem('api_token'));
-    // console.log(token)
     const userData = async () => {
-        const response = await axios
+        await axios
             .post("http://dignizant.com/practical-task-api-doc/public/api/user-list", '',
                 {
                     headers: { 'Authorization': `Bearer ${token}` }
@@ -28,33 +40,21 @@ const UserList = () => {
             });
     }
 
-    const delData = ((id) => {
-        setData(id)
-        delUser();
-        // userData();
-    })
 
-    let getData = useSelector((state) => state.UserData.data);;
-
-    console.log("state", data)
-    const delUser = async () => {
-        const response = await axios
-            .post("http://dignizant.com/practical-task-api-doc/public/api/delete-user", { user_id: data },
+    const delUser = async (id) => {
+        await axios
+            .post("http://dignizant.com/practical-task-api-doc/public/api/delete-user", { user_id: id },
                 {
                     headers: { 'Authorization': `Bearer ${token}` },
                 })
             .then(res => {
-                const finalData = getData.filter((e) => e.id !== data.data[0])
+                const finalData = getData.filter((e) => e.id !== id)
                 dispatch(DelUser(finalData))
             })
             .catch((err) => {
                 console.log("Erraaaa: ", err);
             });
     }
-
-    useEffect(() => {
-        userData();
-    }, [])
 
     return (
         <>
@@ -78,10 +78,10 @@ const UserList = () => {
                                 <td>{user.description}</td>
                                 <td>{user.profile_photo}</td>
                                 <td>
-                                    <Link  class="btn btn-outline-primary" to={`/edituser/${user.id}`}>Update User</Link>
+                                    <Link class="btn btn-outline-primary" to={`/edituser/${user.id}`}>Update User</Link>
                                 </td>
                                 <td>
-                                    <button type="button" class="btn btn-danger" onClick={(e) => delData(user.id)}>Remove User</button>
+                                    <button type="button" class="btn btn-danger" onClick={(e) => delUser(user.id)}>Remove User</button>
                                 </td>
                             </tr>
                         })}

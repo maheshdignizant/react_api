@@ -20,8 +20,9 @@ const EditUser = () => {
         description: user.description
     }
 
-    const token = JSON.parse(localStorage.getItem('api_token'));
-    // console.log(token)
+    console.log("enter fata",data);
+
+    const token = localStorage.getItem('api_token');
     const loadUser = async () => {
         const result = await axios.post("http://dignizant.com/practical-task-api-doc/public/api/user-detail", { user_id: id }, {
             headers: { 'Authorization': `Bearer ${token}` },
@@ -35,7 +36,7 @@ const EditUser = () => {
     }, [])
 
     const userData = async () => {
-        const response = await axios
+        await axios
             .post("http://dignizant.com/practical-task-api-doc/public/api/edit-user", data,
                 {
                     headers: { 'Authorization': `Bearer ${token}` },

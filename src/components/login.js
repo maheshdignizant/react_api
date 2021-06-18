@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import {Link} from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { Link, useHistory } from 'react-router-dom';
 import axios from 'axios'
-import { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { GetToken } from '../actions/apiCall'
 
 const Login = () => {
-
+ 
+    const history = useHistory();
     const dispatch = useDispatch();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -19,9 +19,9 @@ const Login = () => {
         fetchToken();
         e.preventDefault();
     }
-
-    const fetchToken = async () => {
-        const response = await axios
+    
+        const fetchToken = async () => {
+        await axios
             .post("http://dignizant.com/practical-task-api-doc/public/api/login", {
                 email: email,
                 password: password
@@ -29,26 +29,28 @@ const Login = () => {
             .then(res => {
                 console.log("datasss", res.data);
                 dispatch(GetToken(res.data.access_token))
-                window.location.href="/userdata";
+
+                localStorage.setItem('api_token', res.data.access_token);
+                history.push("/userdata")
+
             })
             .catch((err) => {
                 console.log("Err: ", err);
             });
-        // localStorage.setItem('myData', response['data'].access_token);
-        // console.log(response);
-        // dispatch(GetToken(response));
-        // dispatch(AllData(response.data.data.summary));
+
     };
-    // useEffect(() => {
-    //     fetchToken();
-    // }, [password]);
 
     const token = useSelector((state) => state.Token.token);
-    console.log("api", token);
-    localStorage.setItem('api_token', JSON.stringify(token));
+
+    const token_1 = localStorage.getItem('api_token');
+
+    if(token_1 != null){
+        history.push('/userdata')
+        alert('You are already Log In ')
+    }
 
     return (
-    
+
         <div className="container register media">
             <div className="row ">
                 <div className="col-sm-9 col-md-3 register-left">
@@ -56,7 +58,7 @@ const Login = () => {
                     <h3>Welcome</h3>
                     <p>Enter required details</p>
                     <div className=" pb-5">
-                    <Link to="/register" className="login ">Register</Link>
+                        <Link to="/register" className="login ">Register</Link>
                     </div>
                 </div>
                 <div className="col-sm-12 col-md-9 register-right ">
@@ -65,25 +67,25 @@ const Login = () => {
                             <h3 className="register-heading">Login Form</h3>
                             <div className="row register-form justify-content-center">
                                 <div className="col-sm-9 col-md-6 ">
-                                <form onSubmit={handleSubmit}>
-                                    <div className="form-group mb-3">
-                                        <input type="email" 
-                                        className="form-control" 
-                                        placeholder="Your Email *" 
-                                        value={email}
-                                        onChange={(e) => setEmail(e.target.value)} />
-                                    </div>
-                                    <div className="form-group">
-                                        <input type="password" 
-                                        className="form-control"
-                                         placeholder="Password *"
-                                          value={password}
-                                        onChange={(e) => setPassword(e.target.value)} />
-                                    </div>
-                                    <div className="form-group">
-                                        <button type="submit" className="btnRegister" disabled={!validateForm()}>Login</button>
-                                    </div>
-                                </form>
+                                    <form onSubmit={handleSubmit}>
+                                        <div className="form-group mb-3">
+                                            <input type="email"
+                                                className="form-control"
+                                                placeholder="Your Email *"
+                                                value={email}
+                                                onChange={(e) => setEmail(e.target.value)} />
+                                        </div>
+                                        <div className="form-group">
+                                            <input type="password"
+                                                className="form-control"
+                                                placeholder="Password *"
+                                                value={password}
+                                                onChange={(e) => setPassword(e.target.value)} />
+                                        </div>
+                                        <div className="form-group">
+                                            <button type="submit" className="btnRegister" disabled={!validateForm()}>Login</button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
