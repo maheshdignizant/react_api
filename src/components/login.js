@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link, useHistory } from 'react-router-dom';
 import axios from 'axios'
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { GetToken } from '../actions/apiCall'
 
 const Login = () => {
@@ -32,6 +32,7 @@ const Login = () => {
 
                 localStorage.setItem('api_token', res.data.access_token);
                 history.push("/userdata")
+                // window.location.reload();
 
             })
             .catch((err) => {
@@ -39,8 +40,6 @@ const Login = () => {
             });
 
     };
-
-    const token = useSelector((state) => state.Token.token);
 
     const token_1 = localStorage.getItem('api_token');
 

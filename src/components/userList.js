@@ -4,7 +4,6 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from 'react-router-dom';
 import { UserData } from "../actions/apiCall"
-import { DelUser } from '../actions/apiCall'
 
 const UserList = () => {
     let getData = useSelector((state) => state.UserData.data);
@@ -48,8 +47,9 @@ const UserList = () => {
                     headers: { 'Authorization': `Bearer ${token}` },
                 })
             .then(res => {
-                const finalData = getData.filter((e) => e.id !== id)
-                dispatch(DelUser(finalData))
+                // const finalData = getData.filter((e) => e.id !== id)
+                // dispatch(DelUser(finalData))
+                userData();
             })
             .catch((err) => {
                 console.log("Erraaaa: ", err);
@@ -59,15 +59,17 @@ const UserList = () => {
     return (
         <>
             <div>
-                <table class="table">
-                    <th>INDEX</th>
-                    <th>USER_ID</th>
-                    <th>USER_NAME</th>
-                    <th>USER_EMAIL</th>
-                    <th>USER_DESCRIPTION</th>
-                    <th>USER_PROFILE_PHOTO</th>
-                    <th> Edit</th>
-                    <th> Delete</th>
+                <table className="table">
+                    <thead>
+                        <th>INDEX</th>
+                        <th>USER_ID</th>
+                        <th>USER_NAME</th>
+                        <th>USER_EMAIL</th>
+                        <th>USER_DESCRIPTION</th>
+                        <th>USER_PROFILE_PHOTO</th>
+                        <th> Edit</th>
+                        <th> Delete</th>
+                    </thead>
                     <tbody>
                         {getData.map((user, index) => {
                             return <tr key={index}>
@@ -78,10 +80,10 @@ const UserList = () => {
                                 <td>{user.description}</td>
                                 <td>{user.profile_photo}</td>
                                 <td>
-                                    <Link class="btn btn-outline-primary" to={`/edituser/${user.id}`}>Update User</Link>
+                                    <Link className="btn btn-outline-primary" to={`/edituser/${user.id}`}>Update User</Link>
                                 </td>
                                 <td>
-                                    <button type="button" class="btn btn-danger" onClick={(e) => delUser(user.id)}>Remove User</button>
+                                    <button type="button" className="btn btn-danger" onClick={(e) => delUser(user.id)}>Remove User</button>
                                 </td>
                             </tr>
                         })}

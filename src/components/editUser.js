@@ -1,12 +1,11 @@
 import React from 'react'
-import { Link, useHistory, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 
 
-const EditUser = () => {
+const EditUser = ({history}) => {
 
-    const history = useHistory();
     const { id } = useParams();
     const [user, setUser] = useState({
         name: "",
@@ -52,7 +51,7 @@ const EditUser = () => {
     }
 
     const handleSubmit = (e) => {
-        alert('user created successfully')
+        alert('user details have been updated successfully')
         userData();
         history.push('/userdata')
     }

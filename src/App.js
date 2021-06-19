@@ -1,6 +1,6 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Header from './components/header';
+import NavBar from './components/NavBar';
 import Login from './components/login';
 import Register from './components/register';
 import UserList from './components/userList';
@@ -9,12 +9,11 @@ import EditUser from './components/editUser';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import "./App.css"
 
-
 export const App = () => {
   return (
     <>
-      <Router>
-        <Header />
+      <Router >
+        <NavBar/>
         <Switch>
           <Route exact path='/' component={Login} />
           <Route  path='/register' component={Register} />  

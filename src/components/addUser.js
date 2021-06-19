@@ -2,7 +2,7 @@ import React from 'react'
 import { Link,  useHistory } from 'react-router-dom';
 import { useState } from 'react'
 import axios from 'axios'
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { UserData } from "../actions/apiCall"
 
 
@@ -33,7 +33,7 @@ const AddUser = () => {
         password_confirmation: user.confirm_password,
         description: user.description
     }
-    // console.log(token)
+    
     const userData = async () => {
             await axios
             .post("http://dignizant.com/practical-task-api-doc/public/api/create-user", data,
